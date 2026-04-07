@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Predictor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f5f5f5;
+    }
+    .box {
+      text-align: center;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      padding: 8px;
+      width: 80px;
+      text-align: center;
+      margin: 10px 0;
+    }
+    button {
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>Enter your age 👇</h2>
+  <input type="number" id="ageInput" value="22">
+  <br>
+  <button onclick="predictAge()">Predict</button>
+
+  <div class="result" id="result"></div>
+</div>
+
+<script>
+  function predictAge() {
+    const age = document.getElementById("ageInput").value;
+    document.getElementById("result").innerText = "Your age is: " + age;
+  }
+</script>
+
+</body>
+</html>
