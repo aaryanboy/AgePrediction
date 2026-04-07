@@ -2,56 +2,125 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Age Predictor</title>
+
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+    }
+
+    body {
       background: #f5f5f5;
+      padding: 20px;
     }
-    .box {
-      text-align: center;
+
+    /* Top bar */
+    .top-bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 40px;
+    }
+
+    .github-link {
+      text-decoration: none;
+      font-size: 14px;
+      color: #333;
+      border: 1px solid #ccc;
+      padding: 6px 12px;
+      border-radius: 6px;
       background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    input {
-      padding: 8px;
-      width: 80px;
+
+    /* Main content */
+    .content {
       text-align: center;
-      margin: 10px 0;
+      max-width: 400px;
+      margin: auto;
     }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+
     button {
-      padding: 8px 15px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #333;
+      color: white;
       cursor: pointer;
     }
+
+    button:hover {
+      background: #555;
+    }
+
     .result {
-      margin-top: 15px;
+      margin-top: 20px;
+      font-size: 18px;
       font-weight: bold;
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 18px;
+      }
+
+      .github-link {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="box">
-  <h2>Enter your age 👇</h2>
-  <input type="number" id="ageInput" >
-  <br>
-  <button onclick="predictAge()">Predict</button>
+  <div class="top-bar">
+    <a href="https://github.com/your-username" target="_blank" class="github-link">
+      GitHub
+    </a>
+  </div>
 
-  <div class="result" id="result"></div>
-</div>
+  <div class="content">
+    <h2>Enter your age 👇</h2>
+    
+    <input type="number" id="ageInput" placeholder="Enter age">
+    
+    <button onclick="predictAge()">Predict</button>
 
-<script>
-  function predictAge() {
-    const age = document.getElementById("ageInput").value;
-    document.getElementById("result").innerText = "Your age is: " + age;
-  }
-</script>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function predictAge() {
+      const age = document.getElementById("ageInput").value;
+
+      if (!age) {
+        document.getElementById("result").innerText = "Please enter your age";
+        return;
+      }
+
+      document.getElementById("result").innerText = "Your age is: " + age;
+    }
+  </script>
 
 </body>
 </html>
